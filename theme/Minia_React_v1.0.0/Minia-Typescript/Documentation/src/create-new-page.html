@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        @@include("partials/title-meta.html", {"title": "Horizontal Layouts"})
+        @@include("partials/head-css.html")
+
+    </head>
+
+    <body data-topbar="dark" data-spy="scroll" data-target=".right-side-nav"
+        data-offset="175">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            @@include("partials/topbar.html")
+
+            @@include("partials/sidebar.html")
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="p-lg-1">
+
+                                            <div class="d-xl-flex">
+
+                                                <div class="w-100">
+
+                                                    <h4 class="mt-0 mb-4">How to
+                                                        Create a Custom Page</h4>
+                                                    <p>
+                                                        Here is the example on
+                                                        how to create your
+                                                        custom page and add it
+                                                        to the leftsidebar menu
+                                                        and breadcrumbs.
+                                                    </p>
+                                                    <h6>1. Create a page
+                                                        component in the <code>src/pages</code>
+                                                        with name <code>newPage.tsx</code></h6>
+                                                    <p class="ml-3">Example :-</p>
+                                                    <div class="ml-4">
+                                                        <pre
+                                                            class="bg-dark
+                                                            text-white
+                                                            p-3">
+import React from 'react';
+
+//Import Breadcrumb
+import Breadcrumbs from "../../components/Common/Breadcrumb"
+
+    const newPage = () => {
+        return (
+            &lt;Breadcrumbs title="New Page" breadcrumbItem="New Page" /&gt;
+            This is New Page
+        );
+    }
+
+export default newPage;</pre>
+                                                    </div>
+                                                    <h6 class="mt-5"
+                                                        class="mt-5">2. Set the
+                                                        route in the <code>/src/routes/allRoutes.tsx</code>
+                                                        file.</h6>
+                                                    <p class="ml-3">Example :-</p>
+                                                    <div class="ml-4">
+                                                        <pre class="bg-dark
+                                                            text-white p-3">
+import newPage from "../pages/newPage"
+
+/** If u want to create a new page (with layouts) **/
+
+const authProtectedRoutes = [
+    { path: "/new-page", component: newPage }                                          
+]
+    or 
+
+/** If u want to create Auth layout (without header footer) **/
+
+const publicRoutes = [
+    { path: "/new-page", component: newPage }                                          
+]</pre>
+                                                    </div>
+                                                    <h6 class="mt-5">3. Add Link
+                                                        of the page in Vertical
+                                                        Layout and Horizontal
+                                                        Layout</h6 class="mt-5">
+                                                    <p>For Vertical Layout
+                                                        :-
+                                                        <code>/src/components/VerticalLayout/SidebarContent.tsx</code></p>
+                                                    <p>For Horizontal Layout
+                                                        :-
+                                                        <code>/src/components/HorizontalLayout/Navbar.tsx</code></p>
+                                                    <p class="ml-3">Example :-</p>
+                                                    <div class="ml-4">
+                                                        <pre
+                                                            class="bg-dark
+                                                            text-white
+                                                            p-3">
+/** Vertical layout */
+
+&lt;ul className="metismenu list-unstyled" id="side-menu"&gt;
+    &lt;li&gt;
+        &lt;Link to="/new-page"&gt;{props.t("New Page")}&lt;/Link&gt;
+    &lt;/li&gt;
+&lt;ul&gt;
+
+<code>
+/** Horizontal layout */
+    
+&lt;ul className="navbar-nav"&gt;
+    &lt;li&gt;
+        &lt;Link to="/new-page"&gt;{props.t("New Page")}&lt;/Link&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code> </pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- end card -->
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                        </div> <!-- container-fluid -->
+                    </div>
+                    <!-- End Page-content -->
+                    @@include("partials/footer.html")
+                </div>
+                <!-- end main content-->
+
+            </div>
+            <!-- END layout-wrapper -->
+            @@include("partials/vendor-scripts.html")
+
+            <script src="assets/js/app.js"></script>
+
+        </body>
+    </html>

@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        @@include("partials/title-meta.html", {"title": "Setup"})
+        @@include("partials/head-css.html")
+
+    </head>
+
+    <body data-topbar="dark" data-spy="scroll" data-target=".right-side-nav"
+        data-offset="175">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            @@include("partials/topbar.html")
+
+            @@include("partials/sidebar.html")
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="p-lg-1">
+
+                                            <div class="d-xl-flex">
+
+                                                <div class="w-100">
+
+                                                    <h4 class="mt-0 mb-4">Setup
+                                                        React</h4>
+
+                                                    <div id="desc" class="mb-5">
+                                                        <h5 class="mt-4">Introduction</h5>
+                                                        <p>
+                                                            Minia is a fully
+                                                            featured premium
+                                                            admin dashboard
+                                                            template in ReactJs
+                                                            with <strong>Redux
+                                                                Hooks With
+                                                                Typescript</strong>
+                                                            with <strong>Firebase/fake-backend
+                                                                with Google and
+                                                                Facebook
+                                                                authentication</strong>
+                                                            and
+                                                            developer-friendly
+                                                            codes.
+                                                            <br><code>Note:</code>
+                                                            You need to fill
+                                                            firebase credentials
+                                                            and Social
+                                                            ( Google / Facebook
+                                                            ) credentials
+                                                            in the <code>.env</code>
+                                                            file.
+                                                        </p>
+                                                    </div>
+
+                                                    <div id="firebase"
+                                                        class="mb-5">
+                                                        <h5 class="mt-4">Firebase</h5>
+                                                        <p>
+                                                            Set <code>
+                                                                REACT_APP_DEFAULTAUTH=firebase
+                                                            </code> in the
+                                                            <code>.env</code>
+                                                            file. <br>
+                                                            Also fill all the
+                                                            firebase credentials
+                                                            in the <code>.env</code>
+                                                            file. <br>
+                                                            Remove the
+                                                            fake-backend setup
+                                                            code from the <code>App.tsx</code>
+                                                            <br>
+                                                            Now just uncomment
+                                                            the below firebase
+                                                            setup code in the
+                                                            <code>App.tsx</code>
+                                                            file. <br>
+                                                        </p>
+
+                                                        <pre class="bg-dark
+                                                            text-white p-3">                                          		  
+// Import Firebase Configuration file
+import { initFirebaseBackend } from "./helpers/firebase_helper";
+
+//api config
+// import config from "./config";
+
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASEURL,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_APPID,
+    measurementId: process.env.REACT_APP_MEASUREMENTID,
+};
+
+// init firebase backend
+// initFirebaseBackend(config["firebase"]);</pre>
+                                                    </div>
+
+                                                    <div id="fake-backend"
+                                                        class="mb-5">
+                                                        <h5 class="mt-4">Fake-Backend</h5>
+                                                        <p>
+                                                            Set <code>
+                                                                REACT_APP_DEFAULTAUTH=fakebackend
+                                                            </code> in the
+                                                            <code>.env</code>
+                                                            file. <br>
+                                                            Remove the firebase
+                                                            setup code from the
+                                                            <code>App.tsx</code>
+                                                            file. <br>
+                                                            Now just uncomment
+                                                            the below
+                                                            fake-backend setup
+                                                            code in the <code>App.tsx</code>
+                                                            file. <br>
+                                                        </p>
+                                                        <pre class="bg-dark
+                                                            text-white p-3">
+import fakeBackend from "./helpers/AuthType/fakeBackend"
+
+// Activating fake backend
+fakeBackend();
+</pre>
+                                                    </div>
+
+                                                    <div id="social"
+                                                        class="mb-5">
+                                                        <h5 class="mt-4">Social
+                                                            Authentication</h5>
+                                                        <p>Set the social
+                                                            credentials in the
+                                                            <code>.env</code>
+                                                            file and also check
+                                                            code in <code>src/pages/Authentication/Login.tsx</code>
+                                                            file.</p>
+                                                    </div>
+
+                                                    <div id="i18n" class="mb-5">
+                                                        <h5 class="mt-4">i18n
+                                                            Language translation
+                                                            settings</h5>
+                                                        <p>
+                                                            <b>How to add new
+                                                                language?</b>
+                                                            Let add French
+                                                            language in the
+                                                            existing language.
+                                                        </p>
+                                                        <ol>
+                                                            <li> Create a new
+                                                                file <code>src/locales/fr/translation.json</code>
+                                                            </li>
+                                                            <li> update the
+                                                                below code in
+                                                                the <code>src/i18n.ts</code>
+                                                                file <br>
+                                                                <br>
+                                                                <pre
+                                                                    class="bg-dark
+                                                                    text-white
+                                                                    p-3">
+import translationGr from './locales/gr/translation.json';
+            
+const resources : any = {
+    gr: {
+    translation: translationGr
+    }
+}; </pre>
+                                                            </li>
+                                                            <li>
+                                                                Now add the new
+                                                                option of French
+                                                                language in the
+                                                                topbar language
+                                                                dropdown menu
+                                                                <code>src/components/CommonForBoth/TopbarDropdown/LanguageDropdown.tsx</code>
+                                                            </li>
+                                                            <li>
+                                                                You must have to
+                                                                write all text
+                                                                like <strong>{props.t('Search_keyword')}</strong>
+                                                                to make it
+                                                                working with all
+                                                                languages. Also
+                                                                make sure to add
+                                                                new words in all
+                                                                other language
+                                                                files <code>src/locales/{language}/translation.json</code>.
+                                                            </li>
+                                                            <li>
+                                                                To change
+                                                                default language
+                                                                to german?
+                                                                update below
+                                                                code in the
+                                                                <code>src/i18n.ts</code>
+                                                                file <br><br>
+                                                                <pre
+                                                                    class="bg-dark
+                                                                    text-white
+                                                                    p-3">
+i18n
+    .use(detector)
+    .use(reactI18nextModule) // passes i18n down to react-i18next
+    .init({
+        resources,
+        lng: "gr",
+        fallbackLng: "gr", // use en if detected lng is not available
+
+        keySeparator: false, // we do not use keys in form messages.welcome
+
+        interpolation: {
+            escapeValue: false // react already safes from xss
+        }
+    });</pre>
+                                                            </li>
+                                                        </ol>
+                                                    </div>
+
+                                                    <div id="prerequisites"
+                                                        class="mb-5">
+                                                        <h5 class="mt-4">Prerequisites</h5>
+                                                        <p>
+                                                            Please follow below
+                                                            steps to install and
+                                                            setup all
+                                                            prerequisites:
+                                                        </p>
+
+
+                                                        <ul>
+                                                            <li>
+                                                                <strong>Nodejs</strong>
+                                                                <p>
+                                                                    Make sure to
+                                                                    have the <a
+                                                                        href="https://nodejs.org/"
+                                                                        target="_blank">Node.js</a>
+                                                                    installed
+                                                                    &amp;
+                                                                    running
+                                                                    in your
+                                                                    computer.
+                                                                    If you
+                                                                    already have
+                                                                    installed
+                                                                    Node on your
+                                                                    computer,
+                                                                    you
+                                                                    can skip
+                                                                    this step if
+                                                                    your
+                                                                    existing
+                                                                    node version
+                                                                    is
+                                                                    greater than
+                                                                    10. </p>
+                                                            </li>
+
+                                                            <li>
+                                                                <strong>Git</strong>
+                                                                <p>Make sure to
+                                                                    have the <a
+                                                                        href="https://git-scm.com/"
+                                                                        target="_blank">Git</a>
+                                                                    installed
+                                                                    globally
+                                                                    &amp;
+                                                                    running on
+                                                                    your
+                                                                    computer. If
+                                                                    you already
+                                                                    have
+                                                                    installed
+                                                                    git on your
+                                                                    computer,
+                                                                    you can skip
+                                                                    this step.</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div id="installation">
+                                                        <h5 class="mt-4">Installation</h5>
+                                                        <p>
+                                                            To setup the admin
+                                                            theme, follow
+                                                            below-mentioned
+                                                            steps:
+                                                        </p>
+
+                                                        <ul>
+                                                            <li>
+                                                                <strong>Install
+                                                                    Prerequisites</strong>
+                                                                <p>
+                                                                    Make sure to
+                                                                    have all
+                                                                    above
+                                                                    prerequisites
+                                                                    installed
+                                                                    &amp;
+                                                                    running on
+                                                                    your
+                                                                    computer
+                                                                </p>
+                                                            </li>
+
+                                                        </ul>
+
+
+                                                        <p class="mt-4">
+                                                            After you finished
+                                                            with the above
+                                                            steps, you can run
+                                                            the
+                                                            following commands
+                                                            into the terminal /
+                                                            command prompt from
+                                                            the
+                                                            root directory of
+                                                            the project to run
+                                                            the project locally
+                                                            or
+                                                            build for
+                                                            production use:
+                                                        </p>
+                                                        <table class="table
+                                                            table-bordered m-0">
+                                                        </table>
+
+                                                        <table class="table
+                                                            table-bordered m-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th
+                                                                        style="width:
+                                                                        20%;">
+                                                                        <i
+                                                                            class="ti-file"></i>
+                                                                        Command</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <code>yarn
+                                                                            install</code>
+                                                                    </td>
+                                                                    <td>
+                                                                        This
+                                                                        would
+                                                                        install
+                                                                        all the
+                                                                        required
+                                                                        dependencies
+                                                                        in
+                                                                        the
+                                                                        <code>node_modules</code>
+                                                                        folder.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <code>yarn
+                                                                            start</code>
+                                                                    </td>
+                                                                    <td>
+                                                                        Runs the
+                                                                        project
+                                                                        locally,
+                                                                        starts
+                                                                        the
+                                                                        development
+                                                                        server
+                                                                        and
+                                                                        watches
+                                                                        for any
+                                                                        changes
+                                                                        in your
+                                                                        code.
+                                                                        The
+                                                                        development
+                                                                        server
+                                                                        is
+                                                                        accessible
+                                                                        at <a
+                                                                            href="http://localhost:3000">http://localhost:3000</a>.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <code>yarn
+                                                                            build</code>
+                                                                    </td>
+                                                                    <td>
+                                                                        Generates
+                                                                        a <code>/dist</code>
+                                                                        directory
+                                                                        with all
+                                                                        the
+                                                                        production
+                                                                        files.
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div id="tips">
+                                                        <h5 class="mt-4">Tips</h5>
+                                                        <p>
+                                                            SCSS: We suggest you
+                                                            to do not change any
+                                                            scss files from the
+                                                            <code>src/assets/scss/theme.scss</code>
+                                                            folders because to
+                                                            get new updates will
+                                                            might be break your
+                                                            SCSS changes if any
+                                                            you have made. We
+                                                            strongly suggest you
+                                                            to use theme.scss
+                                                            file and use that
+                                                            instead of overwrite
+                                                            any theme's custom
+                                                            scss files.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+
+                                                <!-- Start right-side-nav -->
+                                                <div class="d-none d-xl-block">
+                                                    <div class="right-side-nav">
+                                                        <ul class="nav nav-pills
+                                                            flex-column">
+                                                            <li
+                                                                class="nav-item">
+                                                                <a href="#desc"
+                                                                    class="nav-link">Description</a>
+                                                            </li>
+                                                            <li
+                                                                class="nav-item">
+                                                                <a
+                                                                    href="#firebase"
+                                                                    class="nav-link">Firebase</a>
+                                                            </li>
+                                                            <li
+                                                                class="nav-item">
+                                                                <a
+                                                                    href="#fake-backend"
+                                                                    class="nav-link">Fake-Backend</a>
+                                                            </li>
+                                                            <li
+                                                                class="nav-item">
+                                                                <a href="#i18n"
+                                                                    class="nav-link">Mulit
+                                                                    Language
+                                                                    setup</a>
+                                                            </li>
+                                                            <li
+                                                                class="nav-item">
+                                                                <a
+                                                                    href="#prerequisites"
+                                                                    class="nav-link">Prerequisites</a>
+                                                            </li>
+                                                            <li
+                                                                class="nav-item">
+                                                                <a
+                                                                    href="#installation"
+                                                                    class="nav-link">Installation</a>
+                                                            </li>
+                                                            <li
+                                                                class="nav-item">
+                                                                <a href="#tips"
+                                                                    class="nav-link">Tips</a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <!-- End right-side-nav -->
+                                            </div>
+
+                                        </div> <!-- end padding-->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div>
+                        </div>
+                        <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+
+                @@include("partials/footer.html")
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+
+        @@include("partials/vendor-scripts.html")
+
+        <script src="assets/js/app.js"></script>
+
+    </body>
+
+</html>
