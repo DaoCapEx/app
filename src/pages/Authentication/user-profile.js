@@ -16,7 +16,6 @@ import { AvForm, AvField } from "availity-reactstrap-validation"
 //redux
 import { useSelector, useDispatch } from "react-redux"
 
-import { withRouter } from "react-router-dom"
 
 //Import Breadcrumb
 import Breadcrumb from "../../components/Common/Breadcrumb"
@@ -136,4 +135,4 @@ const UserProfile = props => {
   )
 }
 
-export default withRouter(UserProfile)
+export default UserProfile

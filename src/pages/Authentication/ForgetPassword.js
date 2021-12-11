@@ -6,7 +6,7 @@ import { Row, Col, Alert, Container } from "reactstrap"
 //redux
 import { useSelector, useDispatch } from "react-redux"
 
-import { withRouter, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 // availity-reactstrap-validation
 import { AvForm, AvField } from "availity-reactstrap-validation"
@@ -108,4 +108,4 @@ ForgetPasswordPage.propTypes = {
   history: PropTypes.object,
 }
 
-export default withRouter(ForgetPasswordPage)
+export default ForgetPasswordPage
