@@ -1,12 +1,17 @@
 import React from "react"
 
-import { BrowserRouter as Router } from "react-router-dom"
+import {
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
 
 // Import Routes all
-import { userRoutes } from "./routes/allRoutes"
+import routes from "./routes/allRoutes"
+
+
 
 // Import all middleware
-import Authmiddleware from "./routes/middleware/Authmiddleware"
+import RouteMiddleware from "./routes/middleware/RouteMiddleware"
 
 // layouts Format
 import VerticalLayout from "./components/VerticalLayout/"
@@ -16,22 +21,25 @@ import "./assets/scss/theme.scss"
 import "./assets/scss/preloader.scss"
 
 
-const App = props => {
+const App = (props) => {
 
   return (
     <React.Fragment>
-      <Router>
-          {userRoutes.map((route, idx) => (
-            <Authmiddleware
+      <BrowserRouter>
+        <Routes>
+          {routes.map((route, idx) => {
+            console.log("route")
+            return (
+            <RouteMiddleware
               path={route.path}
               layout={VerticalLayout}
               component={route.component}
               key={idx}
               isAuthProtected={false}
-              exact
-            />
-          ))}
-      </Router>
+            />)
+          })}
+        </Routes>
+      </BrowserRouter>
     </React.Fragment>
   )
 }

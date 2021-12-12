@@ -1,9 +1,9 @@
 //Dashboard
 import Dashboard from "../pages/Dashboard/index";
 
-const userRoutes = [
-  { path: "/dashboard", component: Dashboard },
+const routes = [
+  { path: "/", component: Dashboard },
 ]
 
 
-export { userRoutes }
+export default routes

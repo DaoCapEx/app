@@ -10,7 +10,6 @@ const Dashboard = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                    {/* Render Breadcrumbs */}
                     <Breadcrumbs title="Dashboard" breadcrumbItem="Dashboard" />
                 </Container>
             </div>
