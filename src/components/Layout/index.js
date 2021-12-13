@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
+import Header from './Header'
+import Footer from './Footer'
+import Sidebar from './Sidebar'
 
 const Layout = props => {
 
@@ -19,12 +22,10 @@ const Layout = props => {
       </div>
 
       <div id="layout-wrapper">
-        {/* <Header /> */}
-        {/* <Sidebar
-          
-        /> */}
-        <div className="main-content">{props.children}</div>
-        {/* <Footer /> */}
+        <Header />
+        <Sidebar />
+        <div className="main-content">{props.component}</div>
+        <Footer />
       </div>
     </React.Fragment>
   );

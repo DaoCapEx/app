@@ -3,18 +3,13 @@ import React from "react"
 import {
   BrowserRouter,
   Routes,
+  Route, 
 } from "react-router-dom";
 
-// Import Routes all
-import routes from "./routes/allRoutes"
-
-
-
-// Import all middleware
-import RouteMiddleware from "./routes/middleware/RouteMiddleware"
+import Dashboard from "./pages/Dashboard/index";
 
 // layouts Format
-import VerticalLayout from "./components/VerticalLayout/"
+import Layout from "./components/Layout"
 
 // Import scss
 import "./assets/scss/theme.scss"
@@ -27,18 +22,11 @@ const App = (props) => {
     <React.Fragment>
       <BrowserRouter>
         <Routes>
-          {routes.map((route, idx) => {
-            console.log("route")
-            return (
-            <RouteMiddleware
-              path={route.path}
-              layout={VerticalLayout}
-              component={route.component}
-              key={idx}
-              isAuthProtected={false}
-            />)
-          })}
-        </Routes>
+          <Route
+            path="/"
+            element={<Layout component={<Dashboard/>} />}
+          />
+          </Routes>
       </BrowserRouter>
     </React.Fragment>
   )

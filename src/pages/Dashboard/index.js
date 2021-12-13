@@ -3,7 +3,7 @@ import {
     Container,
 } from "reactstrap";
 
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from "../../components/Breadcrumb/Breadcrumb";
 
 const Dashboard = () => {
     return (

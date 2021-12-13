@@ -3,10 +3,6 @@ import React, { useState } from "react"
 
 import { Link } from "react-router-dom"
 
-//import drawer
-import ReactDrawer from 'react-drawer';
-import 'react-drawer/lib/react-drawer.css';
-
 //Import Icons
 import FeatherIcon from "feather-icons-react";
 
@@ -14,12 +10,8 @@ import FeatherIcon from "feather-icons-react";
 import { Dropdown, DropdownToggle, DropdownMenu, Row, Col } from "reactstrap"
 
 // Import menuDropdown
-import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown"
-import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown"
-import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
-import RightSidebar from "../CommonForBoth/RightSidebar"
-import LightDark from "../CommonForBoth/Menus/LightDark";
-
+import NotificationDropdown from "../TopbarDropdown/NotificationDropdown"
+import ProfileMenu from "../TopbarDropdown/ProfileMenu"
 // import images
 import logoSvg from "../../assets/images/logo-sm.svg"
 import github from "../../assets/images/brands/github.png"
@@ -31,33 +23,16 @@ import slack from "../../assets/images/brands/slack.png"
 
 
 
-// Redux Store
-import {
-  showRightSidebarAction,
-  toggleLeftmenu,
-  changeSidebarType,
-  changelayoutMode
-} from "../../store/actions"
-
 const Header = props => {
-  const { onChangeLayoutMode } = props;
   const [search, setsearch] = useState(false)
   const [socialDrp, setsocialDrp] = useState(false)
   const [isClick, setClick] = useState(true);
-  const [position, setPosition] = useState();
   const [open, setOpen] = useState(false);
 
-  /**
-   * Rightsidebar drawer
-   */
   const toggleTopDrawer = () => {
-    setPosition('right');
     setOpen(!open)
   }
 
-  const onDrawerClose = () => {
-    setOpen(false);
-  }
 
   /*** Sidebar menu icon and default menu set */
   function tToggle() {
@@ -178,11 +153,6 @@ const Header = props => {
               </div>
             </div>
 
-            <LanguageDropdown />
-
-            {/* light / dark mode */}
-            <LightDark layoutMode={props['layoutMode']} onChangeLayoutMode={onChangeLayoutMode} />
-
             <Dropdown
               className="d-none d-lg-inline-block ms-1"
               isOpen={socialDrp}
@@ -266,13 +236,6 @@ const Header = props => {
           </div>
         </div>
       </header>
-      <ReactDrawer
-        open={open}
-        position={position}
-        onClose={onDrawerClose}
-      >
-        <RightSidebar onClose={onDrawerClose} onChangeLayoutMode={onChangeLayoutMode} />
-      </ReactDrawer>
     </React.Fragment>
   )
 }
@@ -287,17 +250,6 @@ Header.propTypes = {
   toggleLeftmenu: PropTypes.func,
   changelayoutMode: PropTypes.func,
   layoutMode: PropTypes.any,
-}
-
-const mapStatetoProps = state => {
-  const {
-    layoutType,
-    showRightSidebar,
-    leftMenu,
-    leftSideBarType,
-    layoutMode
-  } = state.Layout
-  return { layoutType, showRightSidebar, leftMenu, leftSideBarType, layoutMode }
 }
 
 export default Header
