@@ -6,10 +6,12 @@ import {
   Route, 
 } from "react-router-dom";
 
-import Dashboard from "./pages/Dashboard/index";
 
-// layouts Format
 import Layout from "./components/Layout"
+
+import Dashboard from "./pages/Dashboard/index";
+import ConnectWallet from './pages/Authentication/ConnectWallet';
+
 
 // Import scss
 import "./assets/scss/theme.scss"
@@ -22,9 +24,19 @@ const App = (props) => {
     <React.Fragment>
       <BrowserRouter>
         <Routes>
+        
+        { /** Auth routes */}
+
           <Route
-            path="/"
+            path="/mydao"
             element={<Layout component={<Dashboard/>} />}
+          />
+
+
+          { /** Non auth routes */}
+          <Route
+            path="/connect"
+            element={<ConnectWallet/>}
           />
           </Routes>
       </BrowserRouter>

@@ -102,7 +102,7 @@ const Header = props => {
                   className="icon-lg"
                 />
                  <img src={github} alt="Github" />
-                        <span>My DAO</span>
+                        <span>MyDAO</span>
               </DropdownToggle>
               <DropdownMenu className="dropdown-menu-lg dropdown-menu-start">
                 <div className="p-2">
@@ -152,12 +152,7 @@ const Header = props => {
               </DropdownMenu>
             </Dropdown>
 
-            <form className="app-search d-none d-lg-block">
-              <div className="position-relative">
-                <input type="text" className="form-control" placeholder="Search..." />
-                <button className="btn btn-soft-link" type="button"><i className="bx bx-search align-middle text-black-50"></i></button>
-              </div>
-            </form>
+            
           </div>
 
           <div className="d-flex">
@@ -186,6 +181,12 @@ const Header = props => {
 
           </div>
           <div className="d-flex">
+          <form className="app-search d-none d-lg-block">
+              <div className="position-relative">
+                <input type="text" className="form-control" placeholder="Search..." />
+                <button className="btn btn-soft-link" type="button"><i className="bx bx-search align-middle text-black-50"></i></button>
+              </div>
+            </form>
             <div className="dropdown d-inline-block d-lg-none ms-2">
               <button
                 onClick={() => {
