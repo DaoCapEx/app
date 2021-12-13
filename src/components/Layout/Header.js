@@ -13,7 +13,8 @@ import { Dropdown, DropdownToggle, DropdownMenu, Row, Col } from "reactstrap"
 import NotificationDropdown from "../TopbarDropdown/NotificationDropdown"
 import ProfileMenu from "../TopbarDropdown/ProfileMenu"
 // import images
-import logoSvg from "../../assets/images/logo-sm.svg"
+import logoSvg from "../../assets/images/logos/logo-svg/6.svg"
+import logoLargeSvg from "../../assets/images/logos/logo-svg-transparent/11.svg"
 import github from "../../assets/images/brands/github.png"
 import bitbucket from "../../assets/images/brands/bitbucket.png"
 import dribbble from "../../assets/images/brands/dribbble.png"
@@ -51,26 +52,31 @@ const Header = props => {
     <React.Fragment>
       <header id="page-topbar">
         <div className="navbar-header">
+
           <div className="d-flex">
             <div className="navbar-brand-box">
-              <Link to="/dashboard" className="logo logo-dark">
+              <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
-                  <img src={logoSvg} alt="" height="24" />
+                  <img src={logoSvg} alt="" height="45" style={{
+                    marginLeft: "-10px",
+                    borderRadius: "5px"
+                  }} />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoSvg} alt="" height="24" /> <span className="logo-txt">Minia</span>
+                  <img src={logoLargeSvg} alt="" height="200" style={
+                    {
+                      position: "absolute",
+                      top: "10",
+                      marginTop: "-60px",
+                      marginLeft: "-35px"
+                    }
+                  } />
                 </span>
               </Link>
 
-              <Link to="/dashboard" className="logo logo-light">
-                <span className="logo-sm">
-                  <img src={logoSvg} alt="" height="24" />
-                </span>
-                <span className="logo-lg">
-                  <img src={logoSvg} alt="" height="24" /> <span className="logo-txt">Minia</span>
-                </span>
-              </Link>
             </div>
+
+           
 
             <button
               onClick={() => {
@@ -80,10 +86,76 @@ const Header = props => {
               <i className="fa fa-fw fa-bars"></i>
             </button>
 
+            <Dropdown
+              className="d-none d-lg-inline-block ms-1"
+              isOpen={socialDrp}
+              toggle={() => {
+                setsocialDrp(!socialDrp)
+              }}
+            >
+              <DropdownToggle
+                className="btn header-item noti-icon "
+                tag="button"
+              >
+                <FeatherIcon
+                  icon="grid"
+                  className="icon-lg"
+                />
+                 <img src={github} alt="Github" />
+                        <span>My DAO</span>
+              </DropdownToggle>
+              <DropdownMenu className="dropdown-menu-lg dropdown-menu-start">
+                <div className="p-2">
+                  <Row className="g-0">
+                    <Col>
+                      <Link className="dropdown-icon-item" to="#">
+                        <img src={github} alt="Github" />
+                        <span>My DAO</span>
+                      </Link>
+                    </Col>
+                    <Col>
+                      <Link className="dropdown-icon-item" to="#">
+                        <img src={bitbucket} alt="bitbucket" />
+                        <span>Payments</span>
+                      </Link>
+                    </Col>
+                    <Col>
+                      <Link className="dropdown-icon-item" to="#">
+                        <img src={dribbble} alt="dribbble" />
+                        <span>Contracts</span>
+                      </Link>
+                    </Col>
+                  </Row>
+
+                  <Row className="g-0">
+                    
+                    <Col>
+                      <Link className="dropdown-icon-item" to="#">
+                        <img src={mail_chimp} alt="mail_chimp" />
+                        <span>DAO Exchange</span>
+                      </Link>
+                    </Col>
+                    <Col>
+                      <Link className="dropdown-icon-item" to="#">
+                        <img src={dropbox} alt="dropbox" />
+                        <span>Court</span>
+                      </Link>
+                    </Col>
+                    <Col>
+                      <Link className="dropdown-icon-item" to="#">
+                        <img src={slack} alt="slack" />
+                        <span>Slack</span>
+                      </Link>
+                    </Col>
+                  </Row>
+                </div>
+              </DropdownMenu>
+            </Dropdown>
+
             <form className="app-search d-none d-lg-block">
               <div className="position-relative">
                 <input type="text" className="form-control" placeholder="Search..." />
-                <button className="btn btn-primary" type="button"><i className="bx bx-search-alt align-middle"></i></button>
+                <button className="btn btn-soft-link" type="button"><i className="bx bx-search align-middle text-black-50"></i></button>
               </div>
             </form>
           </div>
@@ -153,68 +225,7 @@ const Header = props => {
               </div>
             </div>
 
-            <Dropdown
-              className="d-none d-lg-inline-block ms-1"
-              isOpen={socialDrp}
-              toggle={() => {
-                setsocialDrp(!socialDrp)
-              }}
-            >
-              <DropdownToggle
-                className="btn header-item noti-icon "
-                tag="button"
-              >
-                <FeatherIcon
-                  icon="grid"
-                  className="icon-lg"
-                />
-              </DropdownToggle>
-              <DropdownMenu className="dropdown-menu-lg dropdown-menu-end">
-                <div className="p-2">
-                  <Row className="g-0">
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={github} alt="Github" />
-                        <span>GitHub</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={bitbucket} alt="bitbucket" />
-                        <span>Bitbucket</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={dribbble} alt="dribbble" />
-                        <span>Dribbble</span>
-                      </Link>
-                    </Col>
-                  </Row>
-
-                  <Row className="g-0">
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={dropbox} alt="dropbox" />
-                        <span>Dropbox</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={mail_chimp} alt="mail_chimp" />
-                        <span>Mail Chimp</span>
-                      </Link>
-                    </Col>
-                    <Col>
-                      <Link className="dropdown-icon-item" to="#">
-                        <img src={slack} alt="slack" />
-                        <span>Slack</span>
-                      </Link>
-                    </Col>
-                  </Row>
-                </div>
-              </DropdownMenu>
-            </Dropdown>
+          
 
             <NotificationDropdown />
             <div
@@ -234,6 +245,7 @@ const Header = props => {
             <ProfileMenu />
 
           </div>
+
         </div>
       </header>
     </React.Fragment>

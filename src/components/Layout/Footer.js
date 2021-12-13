@@ -8,13 +8,10 @@ const Footer = () => {
       <footer className="footer">
         <Container fluid={true}>
           <Row>
-            <Col md={6}>{new Date().getFullYear()} © Minia.</Col>
+            <Col md={6}>{new Date().getFullYear()} © Dao Capital Exchange.</Col>
             <Col md={6}>
               <div className="text-sm-end d-none d-sm-block">
-                Design & Develop by
-                <Link to="#" className="ms-1 text-decoration-underline">
-                  Themesbrand
-                </Link>
+                Designed with <i className="bx bx-heart"/> by devs around the world.
               </div>
             </Col>
           </Row>
