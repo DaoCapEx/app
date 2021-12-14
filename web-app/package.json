@@ -13,7 +13,8 @@
     "react-scripts": "^4.0.3",
     "reactstrap": "^9.0.1",
     "sass": "^1.45.0",
-    "simplebar-react": "^2.3.6"
+    "simplebar-react": "^2.3.6",
+    "web3": "^1.6.1"
   },
   "scripts": {
     "start": "PORT=2008 react-scripts --openssl-legacy-provider start",
