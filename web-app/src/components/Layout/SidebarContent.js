@@ -91,13 +91,19 @@ const SidebarContent = (props) => {
             <li>
               <Link to="/" className="">
                 <FeatherIcon icon="home" />
-                <span>{"Basic DAO Info"}</span>
+                <span>{"Basic Info"}</span>
               </Link>
             </li>
             <li>
               <Link to="/" className="">
                 <FeatherIcon icon="book" />
                 <span>{"Proposals"}</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="">
+                <FeatherIcon icon="user" />
+                <span>{"Address Book"}</span>
               </Link>
             </li>
           </ul>
