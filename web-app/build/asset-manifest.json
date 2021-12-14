@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0872d785.chunk.css",
+    "main.js": "/static/js/main.e057bcd0.chunk.js",
+    "main.js.map": "/static/js/main.e057bcd0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d733170b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d733170b.js.map",
+    "static/js/2.b5da899b.chunk.js": "/static/js/2.b5da899b.chunk.js",
+    "static/js/2.b5da899b.chunk.js.map": "/static/js/2.b5da899b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.0872d785.chunk.css.map": "/static/css/main.0872d785.chunk.css.map",
+    "static/js/2.b5da899b.chunk.js.LICENSE.txt": "/static/js/2.b5da899b.chunk.js.LICENSE.txt",
+    "static/media/11.bec30490.svg": "/static/media/11.bec30490.svg",
+    "static/media/6.aaace725.svg": "/static/media/6.aaace725.svg",
+    "static/media/theme.scss": "/static/media/materialdesignicons-webfont.e9db4005.woff2",
+    "static/media/avatar-1.0fdabd61.jpg": "/static/media/avatar-1.0fdabd61.jpg",
+    "static/media/avatar-3.bd68c38c.jpg": "/static/media/avatar-3.bd68c38c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d733170b.js",
+    "static/js/2.b5da899b.chunk.js",
+    "static/css/main.0872d785.chunk.css",
+    "static/js/main.e057bcd0.chunk.js"
+  ]
+}
