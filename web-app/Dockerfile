@@ -3,7 +3,7 @@
 #
 
 # Pull base image nodejs image.
-FROM node:16
+FROM node:17
 
 #Use bash shell by default
 SHELL ["/bin/bash", "-c"]
@@ -34,4 +34,4 @@ EXPOSE 2008
 RUN npm install -g serve
 
 #Run the app
-CMD [ "serve", "-s", "build" ]
+CMD ["npm", "start"]
