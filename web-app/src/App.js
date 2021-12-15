@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 import {
   BrowserRouter,
   Routes,
-  Route, 
+  Route,
   Navigate
 } from "react-router-dom";
+
+import Cookies from 'universal-cookie';
+import { useNavigate } from "react-router-dom";
 
 
 import Layout from "./components/Layout"
@@ -19,6 +22,11 @@ import AddressBook from "./pages/MyDao/AddressBook";
 // non-auth pages. 
 import ConnectWallet from './pages/Authentication/ConnectWallet';
 
+// utils
+import { onAccountChanged } from './utils/ethereum';
+
+//compomnents
+import AlertModal from './components/Modals/AlertModal';
 
 // Import scss
 import "./assets/scss/theme.scss"
@@ -27,42 +35,73 @@ import "./assets/scss/preloader.scss"
 
 const App = (props) => {
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    //check auth. 
+    const cookies = new Cookies();
+
+    if(!cookies.get('user-token', { path: '/' })){
+      //
+    }
+    
+  }, [])
+
+  const [showAccountChangeModal, setShowAccountChangeModal] = useState(false)
+
+  onAccountChanged(() => {
+    setShowAccountChangeModal(true);
+  })
+
   return (
     <React.Fragment>
+
+      {/** Modals */}
+
+      {showAccountChangeModal && <AlertModal
+        title="Your Ethereum accounts have changed."
+        body="Your accounts have changed in your MetaMask wallet. We need to reload the page to continue."
+        primaryButtonText="Reload Page"
+        onClose={() => {
+          window.location.reload();
+          setShowAccountChangeModal(false);
+        }}
+      />}
+
       <BrowserRouter>
         <Routes>
-        
-        { /** MyDAO routes */}
+
+          { /** MyDAO routes */}
 
           <Route
             path="/mydao/register-dao"
-            element={<Layout component={<RegisterDAO/>} />}
+            element={<Layout component={<RegisterDAO />} />}
           />
 
-           <Route
+          <Route
             path="/mydao/:dao-slug/address-book"
-            element={<Layout component={<AddressBook/>} />}
+            element={<Layout component={<AddressBook />} />}
           />
 
           <Route
             path="/mydao/:dao-slug/proposals"
-            element={<Layout component={<Proposals/>} />}
+            element={<Layout component={<Proposals />} />}
           />
 
-           <Route
+          <Route
             path="/mydao/:dao-slug/basic-info"
-            element={<Layout component={<BasicInfo/>} />}
+            element={<Layout component={<BasicInfo />} />}
           />
 
           { /** Non auth routes */}
           <Route
             path="/connect-wallet"
-            element={<ConnectWallet/>}
+            element={<ConnectWallet />}
           />
 
           {/** Redirect */}
-          <Route path="*" element={<Navigate to ="/connect-wallet" />}/>
-          </Routes>
+          <Route path="*" element={<Navigate to="/connect-wallet" />} />
+        </Routes>
       </BrowserRouter>
     </React.Fragment>
   )
