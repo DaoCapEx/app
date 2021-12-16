@@ -1,5 +1,7 @@
 name: Test app
 
+on: [push]
+
 jobs:
   lint_app:
     name: Test App
@@ -7,6 +9,10 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: Set up NodeJS
+        uses: actions/setup-node@v2
+      - name: Install Dependencies
+        run: npm install
       - name: Run Lint
         run: npm run lint
 
