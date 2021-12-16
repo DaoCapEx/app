@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-    Container,
-} from "reactstrap";
+import { Container } from 'reactstrap';
 
-import Breadcrumbs from "../../components/Breadcrumb/Breadcrumb";
+import Breadcrumbs from '../../components/Breadcrumb/Breadcrumb';
 
 const AddressBook = () => {
     return (
@@ -15,6 +13,6 @@ const AddressBook = () => {
             </div>
         </React.Fragment>
     );
-}
+};
 
 export default AddressBook;

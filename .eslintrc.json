@@ -7,7 +7,10 @@
             "jsx": true,
             "spread": true
         },
-        "sourceType": "module"
+        "sourceType": "module",
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+         }
     },
     "env": {
         "browser": true,
@@ -51,7 +54,7 @@
             "unix"
         ],
         "no-unused-vars": "error",
-        "no-console": "error",
+        "no-console": "off",
         "no-undef": "error",
         "no-empty": "error",
         "no-case-declarations": "error",
