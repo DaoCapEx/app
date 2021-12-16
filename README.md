@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/DaoCapEx/app/main/static-assets/logo/logo-svg/11.svg" height="150" style="text-align: center;" />
+<img src="https://raw.githubusercontent.com/DaoCapEx/app/main/static-assets/logo/logo-svg/11.svg" height="150" style="margin-left:-10px; text-align: center;" />
 
 ## Running DCX
 
