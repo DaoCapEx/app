@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@metamask/onboarding": "^1.0.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "chart.js": "^2.9.4",

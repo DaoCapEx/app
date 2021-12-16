@@ -1,0 +1,25 @@
+name: Test app
+
+jobs:
+  lint_app:
+    name: Test App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Run Lint
+        run: npm run lint
+
+  test_app:
+    name: Test App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - uses: docker-practice/actions-setup-docker@master
+      - run: |
+          docker version
+      - run: docker-compose up
+
+      
+      

@@ -5,8 +5,8 @@ on:
     types: [published]
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  web_apppush_to_registry:
+    name: web-app - Push Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
