@@ -1,4 +1,5 @@
-# DCX - DAO Capital Exchange
+
+<img src="https://raw.githubusercontent.com/DaoCapEx/app/main/static-assets/logo/logo-svg/11.svg" height="150" style="text-align: center;" />
 
 ## Running DCX
 
