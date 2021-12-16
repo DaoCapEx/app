@@ -1,6 +1,7 @@
 {
     "parserOptions": {
         "ecmaVersion": 8,
+        "requireConfigFile": false,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true,
@@ -37,7 +38,7 @@
         "workbox" :true,
         "importScripts" :true
     },
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "rules": {
         "no-fallthrough": "error",
         "no-unreachable": "error",

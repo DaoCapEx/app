@@ -11,17 +11,17 @@ export const isMetaMaskInstalled = () => {
 };
 
 export const getAccounts = async () => {
-    if(isEthereumInstalled()){
-    return await window.ethereum.request({ method: 'eth_requestAccounts' });
-    }
-}
-
-export const onAccountChanged = (callback) => {
     if (isEthereumInstalled()) {
-        window.ethereum.on('accountsChanged', (accounts) => {
-           if(callback){
-               callback();
-           }
+        return await window.ethereum.request({ method: 'eth_requestAccounts' });
+    }
+};
+
+export const onAccountChanged = callback => {
+    if (isEthereumInstalled()) {
+        window.ethereum.on('accountsChanged', accounts => {
+            if (callback) {
+                callback(accounts);
+            }
         });
     }
-}
+};
