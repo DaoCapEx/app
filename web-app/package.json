@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "PORT=2008 react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts --openssl-legacy-provider build",
     "test": "react-scripts --openssl-legacy-provider test",
     "eject": "react-scripts --openssl-legacy-provider eject",
     "start": "PORT=2008 serve -s build"

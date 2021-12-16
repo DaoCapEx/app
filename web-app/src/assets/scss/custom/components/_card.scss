@@ -28,7 +28,7 @@
 }
 
 .card-header-pills {
-  margin: calc(-$card-cap-padding-y / 2);
+  margin: calc(calc($card-cap-padding-y * -1) / 2);
 }
 
 body[data-layout-mode="dark"] {
