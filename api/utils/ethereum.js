@@ -1,9 +1,8 @@
 import EthUtil from 'ethereumjs-util';
 
 export default class EthereumUtil {
-
     // Has the message been signed from this publicAddress
-    static validateSigature(publicAddress, message, signature){
+    static validateSigature(publicAddress, message, signature) {
         // We now are in possession of msg, publicAddress and signature. We
         // can perform an elliptic curve signature verification with ecrecover
         const msgBuffer = EthUtil.toBuffer(message);
@@ -18,7 +17,7 @@ export default class EthereumUtil {
         );
         const addressBuffer = EthUtil.publicToAddress(publicKey);
         const address = EthUtil.bufferToHex(addressBuffer);
-        
+
         return address.toLowerCase() === publicAddress.toLowerCase();
     }
 }

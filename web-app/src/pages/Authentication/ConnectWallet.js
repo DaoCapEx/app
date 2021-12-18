@@ -1,62 +1,62 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from '@reach/router';
 import { Container, Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import MetaMaskOnboarding from '@metamask/onboarding';
 import logoLargeSvg from '../../assets/images/logos/logo-svg-transparent/11.svg';
-import { isMetaMaskInstalled, getAccounts } from '../../utils/ethereum';
+import Wallets from '../../utils/wallet-providers/index';
+import API from '../../utils/api';
+import Cookie from '../../utils/cookie';
+import { WalletProviderNotFoundError } from '../../utils/errors';
 
 const ConnectWallet = () => {
-    const [isMetaMaskWalletInstalled, setIsMetaMaskWalletInstalled] =
-        useState(true);
+    const navigate = useNavigate();
     const [error, setError] = useState(null);
-    const [connectButtonEnabled, setConnectButtonEnabled] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isWalletInstalled, setIsWalletInstalled] = useState({});
 
     useEffect(() => {
-        setIsMetaMaskWalletInstalled(isMetaMaskInstalled());
+
+        const _isWalletInstalled = {};
+        for(const key in Wallets){
+            _isWalletInstalled[key] = await Wallets[key].isWalletInstalled();
+        }
+
+        setIsWalletInstalled(key);
+
+        if (Cookie.isUserTokenSet()) {
+            // redirect to dashboard
+            navigate('/mydao/register-dao');
+        }
     }, []);
 
-    useEffect(() => {
-        if (isMetaMaskWalletInstalled) {
-            const fetchAccounts = async () => {
-                // then check if the user is logged in.
-                const accounts = await getEthAccounts();
-                console.log(accounts);
-            };
 
-            fetchAccounts();
-        }
-    }, [isMetaMaskWalletInstalled]);
 
-    const connectWalletBtnClick = async e => {
-        e.preventDefault();
-        setConnectButtonEnabled(false);
-
-        if (isMetaMaskWalletInstalled) {
-            const accounts = await getEthAccounts();
-            console.log(accounts);
-        } else {
-            const forwarderOrigin =
-                window.location.hostname === 'localhost'
-                    ? 'http://localhost:2008'
-                    : undefined;
-            const onboarding = new MetaMaskOnboarding({ forwarderOrigin });
-            onboarding.startOnboarding();
-        }
-
-        setConnectButtonEnabled(true);
-    };
-
-    const getEthAccounts = async () => {
-        try {
-            return await getAccounts();
-        } catch (e) {
-            console.error(e);
-            setError(
-                'Cannot connect to your wallet. ' +
-                    e.message +
-                    ' Please try again'
+    const connectWalletBtnClick = async walletType => {
+        if (!Wallets[walletType]) {
+            throw new WalletProviderNotFoundError(
+                `${walletType} is not supported`
             );
         }
+
+        setIsLoading(true);
+
+        if (isWalletInstalled[walletType]) {
+            const account = await Wallets[walletType].getAccount();
+
+            if (!account) {
+                setError(
+                    'Cannot connect to your wallet. ' +
+                        e.message +
+                        ' Please try again'
+                );
+            }
+
+            // now, register this user.
+        } else {
+            await Wallets[walletType].installWallet();
+        }
+
+        setIsLoading(false);
     };
 
     return (
@@ -97,13 +97,18 @@ const ConnectWallet = () => {
 
                                         <div className="mb-3">
                                             <button
-                                                disabled={!connectButtonEnabled}
+                                                disabled={isLoading}
                                                 className="btn btn-primary w-100 waves-effect waves-light"
-                                                onClick={connectWalletBtnClick}
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    connectWalletBtnClick(
+                                                        'MetaMask'
+                                                    );
+                                                }}
                                             >
-                                                {isMetaMaskWalletInstalled &&
+                                                {isWalletInstalled["MetaMask"] &&
                                                     'Connect MetaMask Wallet'}
-                                                {!isMetaMaskWalletInstalled &&
+                                                {!isWalletInstalled["MetaMask"] &&
                                                     'Install MetaMask Wallet'}
                                             </button>
                                         </div>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Cookies from 'universal-cookie';
 import Layout from './components/Layout';
 
 // MyDao pages
@@ -25,9 +24,7 @@ import './assets/scss/theme.scss';
 import './assets/scss/preloader.scss';
 
 const App = () => {
-    useEffect(() => {
-        
-    }, []);
+    useEffect(() => {}, []);
 
     const [showAccountChangeModal, setShowAccountChangeModal] = useState(false);
 
