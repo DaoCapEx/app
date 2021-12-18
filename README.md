@@ -1,5 +1,9 @@
 
-<img src="https://raw.githubusercontent.com/DaoCapEx/app/main/static-assets/logo/logo-svg/11.svg" height="150" style="text-align: center;" />
+<img src="https://raw.githubusercontent.com/DaoCapEx/app/main/static-assets/logo/logo-svg/11.svg" height="150" />
+
+# DAO Capital Exchange
+
+#### Run self-sovereign global organizations. 
 
 ## Running DCX
 
