@@ -1,4 +1,12 @@
 import express from 'express';
+import dotenv from 'dotenv'
+
+dotenv.config({ path: process.env.NODE_ENV === "development" ? './dev.env' : './prod.env' })
+
+if(process.env.NODE_ENV === "development"){
+    console.warn("WARNING: Insecure - DCX API is running in development mode.")
+}
+
 const app = express();
 
 if (!process.env.PORT) {

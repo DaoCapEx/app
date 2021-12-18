@@ -67,12 +67,12 @@ const Header = () => {
                                     <img
                                         src={logoLargeSvg}
                                         alt=""
-                                        height="200"
+                                        height="60"
                                         style={{
                                             position: 'absolute',
                                             top: '10',
-                                            marginTop: '-60px',
-                                            marginLeft: '-35px',
+                                            marginTop: '10px',
+                                            marginLeft: '-10px',
                                         }}
                                     />
                                 </span>

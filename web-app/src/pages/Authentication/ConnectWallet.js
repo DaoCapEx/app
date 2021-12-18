@@ -74,7 +74,7 @@ const ConnectWallet = () => {
                                         <img
                                             src={logoLargeSvg}
                                             alt=""
-                                            height="300"
+                                            height="100"
                                         />
                                     </Link>
                                 </div>
