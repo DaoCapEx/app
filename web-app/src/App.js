@@ -26,12 +26,7 @@ import './assets/scss/preloader.scss';
 
 const App = () => {
     useEffect(() => {
-        //check auth.
-        const cookies = new Cookies();
-
-        if (!cookies.get('user-token', { path: '/' })) {
-            //
-        }
+        
     }, []);
 
     const [showAccountChangeModal, setShowAccountChangeModal] = useState(false);
