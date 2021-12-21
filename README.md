@@ -13,7 +13,7 @@
 sudo bash production-install.sh
 ```
 
-### Development
+### Development (with docker-compose) 
 
 Please make sure you have Docker and Docker Compose installed. 
 
@@ -21,6 +21,23 @@ Run this in your terminal at the root of this project:
 
 ```
 docker-compose -f docker-compose.dev.yaml up
+```
+
+#### Development (without docker-compose) 
+
+```
+# Run the postgres server, you can also run it locally if you'd like to run this without docker-compose. 
+docker-compose up postgres 
+
+# Run the backend. 
+cd api
+npm install
+npm run dev
+
+# Run the web-app
+cd web-app
+npm install
+npm run dev
 ```
 
 ## Contributing
