@@ -14,7 +14,7 @@ import AddressBook from './pages/MyDao/AddressBook';
 import ConnectWallet from './pages/Authentication/ConnectWallet';
 
 // utils
-import { onAccountChanged } from './utils/ethereum';
+import WalletProviders from './utils/wallet-providers/index';
 
 //compomnents
 import AlertModal from './components/Modals/AlertModal';
@@ -22,15 +22,18 @@ import AlertModal from './components/Modals/AlertModal';
 // Import scss
 import './assets/scss/theme.scss';
 import './assets/scss/preloader.scss';
+import walletProviders from './utils/wallet-providers/index';
 
 const App = () => {
     useEffect(() => {}, []);
 
     const [showAccountChangeModal, setShowAccountChangeModal] = useState(false);
 
-    onAccountChanged(() => {
-        setShowAccountChangeModal(true);
-    });
+    for(const key in WalletProviders){
+        WalletProviders[key].onAccountChanged(() => {
+            setShowAccountChangeModal(true);
+        });
+    }
 
     return (
         <React.Fragment>

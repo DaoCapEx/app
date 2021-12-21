@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from '@reach/router';
+import { useNavigate } from 'react-router-dom';
 import { Container, Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logoLargeSvg from '../../assets/images/logos/logo-svg-transparent/11.svg';
@@ -14,14 +14,14 @@ const ConnectWallet = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isWalletInstalled, setIsWalletInstalled] = useState({});
 
-    useEffect(() => {
+    useEffect(async () => {
 
         const _isWalletInstalled = {};
         for(const key in Wallets){
             _isWalletInstalled[key] = await Wallets[key].isWalletInstalled();
         }
 
-        setIsWalletInstalled(key);
+        setIsWalletInstalled(_isWalletInstalled);q
 
         if (Cookie.isUserTokenSet()) {
             // redirect to dashboard
