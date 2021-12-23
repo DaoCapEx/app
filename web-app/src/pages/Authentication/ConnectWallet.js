@@ -41,9 +41,7 @@ const ConnectWallet = () => {
 
             if (!account) {
                 setError(
-                    'Cannot connect to your wallet. ' +
-                        message +
-                        ' Please try again'
+                    'Cannot connect to your wallet. Please try again'
                 );
             }
 
