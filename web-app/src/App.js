@@ -28,7 +28,7 @@ const App = () => {
 
     const [showAccountChangeModal, setShowAccountChangeModal] = useState(false);
 
-    for(const key in WalletProviders){
+    for (const key in WalletProviders) {
         WalletProviders[key].onAccountChanged(() => {
             setShowAccountChangeModal(true);
         });

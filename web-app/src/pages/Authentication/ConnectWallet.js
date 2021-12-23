@@ -4,7 +4,6 @@ import { Container, Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logoLargeSvg from '../../assets/images/logos/logo-svg-transparent/11.svg';
 import Wallets from '../../utils/wallet-providers/index';
-import API from '../../utils/api';
 import Cookie from '../../utils/cookie';
 import { WalletProviderNotFoundError } from '../../utils/errors';
 
@@ -15,21 +14,19 @@ const ConnectWallet = () => {
     const [isWalletInstalled, setIsWalletInstalled] = useState({});
 
     useEffect(async () => {
-
         const _isWalletInstalled = {};
-        for(const key in Wallets){
+        for (const key in Wallets) {
             _isWalletInstalled[key] = await Wallets[key].isWalletInstalled();
         }
 
-        setIsWalletInstalled(_isWalletInstalled);q
+        setIsWalletInstalled(_isWalletInstalled);
+        q;
 
         if (Cookie.isUserTokenSet()) {
             // redirect to dashboard
             navigate('/mydao/register-dao');
         }
     }, []);
-
-
 
     const connectWalletBtnClick = async walletType => {
         if (!Wallets[walletType]) {
@@ -106,10 +103,12 @@ const ConnectWallet = () => {
                                                     );
                                                 }}
                                             >
-                                                {isWalletInstalled["MetaMask"] &&
-                                                    'Connect MetaMask Wallet'}
-                                                {!isWalletInstalled["MetaMask"] &&
-                                                    'Install MetaMask Wallet'}
+                                                {isWalletInstalled[
+                                                    'MetaMask'
+                                                ] && 'Connect MetaMask Wallet'}
+                                                {!isWalletInstalled[
+                                                    'MetaMask'
+                                                ] && 'Install MetaMask Wallet'}
                                             </button>
                                         </div>
                                     </form>
