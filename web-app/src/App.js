@@ -22,7 +22,6 @@ import AlertModal from './components/Modals/AlertModal';
 // Import scss
 import './assets/scss/theme.scss';
 import './assets/scss/preloader.scss';
-import walletProviders from './utils/wallet-providers/index';
 
 const App = () => {
     useEffect(() => {}, []);
