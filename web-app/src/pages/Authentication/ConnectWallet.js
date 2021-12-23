@@ -40,9 +40,7 @@ const ConnectWallet = () => {
             const account = await Wallets[walletType].getAccount();
 
             if (!account) {
-                setError(
-                    'Cannot connect to your wallet. Please try again'
-                );
+                setError('Cannot connect to your wallet. Please try again');
             }
 
             // now, register this user.
