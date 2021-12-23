@@ -20,7 +20,6 @@ const ConnectWallet = () => {
         }
 
         setIsWalletInstalled(_isWalletInstalled);
-        q;
 
         if (Cookie.isUserTokenSet()) {
             // redirect to dashboard
@@ -43,7 +42,7 @@ const ConnectWallet = () => {
             if (!account) {
                 setError(
                     'Cannot connect to your wallet. ' +
-                        e.message +
+                        message +
                         ' Please try again'
                 );
             }
