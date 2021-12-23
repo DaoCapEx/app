@@ -1,15 +1,13 @@
-import app from '../index';
-import supertest from 'supertest';
+import axios from 'axios';
 
 /**
  * Test the GET route for home /
 */
 describe('Dao API', () => {
     it('returns status to be OK', async () => {
-        return supertest(app).get('/')
-            .expect(200)
-            .then((res) => {
-                expect(res.body).toHaveProperty('status', 'ok');
-            });
+        const apiUrl = 'http://localhost:2015/';
+        const res = await axios(apiUrl);
+        const data = res.data;
+        expect(data).toHaveProperty('status', 'ok');
     });
 });

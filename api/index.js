@@ -25,5 +25,3 @@ app.listen(process.env.PORT, () => {
     //eslint-disable-no-console
     console.log(`DCX api started at port ${process.env.PORT}`);
 });
-
-export default app;
