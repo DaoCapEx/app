@@ -1,13 +1,12 @@
 import axios from 'axios';
-import apiConfig from '../utils/api-url';
+import { API_URL } from '../tests/api/api-url';
 
 /**
  * Test the GET route for home /
  */
 describe('Status API', () => {
     it('returns status to be OK', async () => {
-        const url = apiConfig.home;
-        const res = await axios(url);
+        const res = await axios(`${API_URL}/`);
         const data = res.data;
         expect(data).toHaveProperty('status', 'ok');
     });
