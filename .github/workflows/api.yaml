@@ -16,6 +16,6 @@ jobs:
         with:
           node-version: '17'
       - name: Install dependencies
-        run: cd api && npm ci
-      - run: cd api && npm run build --if-present
-      - run: cd api && npm run test
+        run: cd api && sudo npm ci
+      - run: cd api && sudo npm run build --if-present
+      - run: cd api && sudo npm run test
