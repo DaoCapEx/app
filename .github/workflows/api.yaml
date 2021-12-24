@@ -1,4 +1,4 @@
-name: api
+name: API CI
 
 on:
   push:
@@ -16,8 +16,6 @@ jobs:
         with:
           node-version: '17.x'
       - name: Install dependencies
-      - run: npm ci
+        run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "This job's status is ${{ job.status }}."
