@@ -11,13 +11,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Start containers
+        run: docker-compose -f "api.yaml" up -d --build
+
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '17'
-      - name: Run docker compose
-        run: sudo docker-compose up
+          node-version: '17.x'
+
       - name: Install dependencies
         run: cd api && npm ci
-      - run: cd api && npm run build --if-present
-      - run: cd api && npm run test
+
+      - name: Run build if present
+        run: cd api && npm run build --if-present
+
+      - name: Run test
+        run: cd api && npm run test
