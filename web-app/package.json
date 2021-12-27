@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
-    "dotenv-webpack": "^7.0.3"
+    "dotenv-webpack": "^7.0.3",
+    "jest": "^27.4.5"
   }
 }
