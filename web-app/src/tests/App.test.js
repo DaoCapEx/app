@@ -9,7 +9,7 @@ describe('On page load', () => {
         const browser = await puppeteer.launch({});
         const page = await browser.newPage()
 
-        page.emulate({
+        await page.emulate({
             viewport: {
                 width: 500,
                 height: 2400,
