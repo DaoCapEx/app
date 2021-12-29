@@ -1,4 +1,4 @@
-name: web-app
+name: WEB CI
 
 on:
   push:
@@ -9,19 +9,22 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [17.x]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yaml" up -d --build
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '17.x'
+
       - name: Install dependencies
-        run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
-      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "This job's status is ${{ job.status }}."
+        run: cd web-app && npm ci
+
+      - name: Run build if present
+        run: cd web-app && npm run build --if-present
+
+      - name: Run test
+        run: cd web-app && npm run test
