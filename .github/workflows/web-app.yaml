@@ -23,8 +23,5 @@ jobs:
       - name: Install dependencies
         run: cd web-app && npm ci
 
-      - name: Run build if present
-        run: cd web-app && npm run build --if-present
-
       - name: Run test
         run: cd web-app && npm run test
