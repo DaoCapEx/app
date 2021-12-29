@@ -1,6 +1,9 @@
 import puppeteer from 'puppeteer';
-// import axios from 'axios';
+import {APP_URL} from './app-url';
 
+/**
+ * PAGE LOADS SUCCESSFULLY
+ */
 describe('On page load', () => {
     test('Home page loads correctly', async () => {
         const browser = await puppeteer.launch({});
@@ -14,7 +17,8 @@ describe('On page load', () => {
             userAgent: ""
         })
 
-        const app_url = 'http://localhost:2008/connect-wallet';
+        const app_url = APP_URL;
+
         await page.goto(app_url);
         const html = await page.$eval('h5', e => e.innerHTML);
         expect(html).toBe('Login or Register');
