@@ -9,14 +9,6 @@ describe('On page load', () => {
         const browser = await puppeteer.launch({});
         const page = await browser.newPage()
 
-        await page.emulate({
-            viewport: {
-                width: 500,
-                height: 2400,
-            },
-            userAgent: ""
-        })
-
         const app_url = APP_URL;
 
         await page.goto(app_url);
