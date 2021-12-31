@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import {APP_URL} from './app-url';
+import { APP_URL } from './app-url';
 
 /**
  * PAGE LOADS SUCCESSFULLY
@@ -7,7 +7,7 @@ import {APP_URL} from './app-url';
 describe('On page load', () => {
     test('Home page loads correctly', async () => {
         const browser = await puppeteer.launch({});
-        const page = await browser.newPage()
+        const page = await browser.newPage();
 
         const app_url = APP_URL;
 
