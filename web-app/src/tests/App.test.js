@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import puppeteer from 'puppeteer';
 import { APP_URL } from './app-url';
 

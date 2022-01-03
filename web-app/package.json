@@ -2,7 +2,6 @@
   "name": "app",
   "version": "0.1.0",
   "private": false,
-
   "dependencies": {
     "@metamask/onboarding": "^1.0.1",
     "axios": "^0.24.0",
@@ -16,6 +15,7 @@
     "react-router-dom": "^6.1.0",
     "react-scripts": "^5.0.0",
     "reactstrap": "^9.0.1",
+    "regenerator-runtime": "^0.13.9",
     "sass": "^1.45.0",
     "simplebar-react": "^2.3.6",
     "universal-cookie": "^4.0.4",
@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "ESLINT_NO_DEV_ERRORS=true NODE_ENV=development SKIP_PREFLIGHT_CHECK=true PORT=2008 react-scripts --openssl-legacy-provider start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts --openssl-legacy-provider build",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "jest",
     "eject": "react-scripts --openssl-legacy-provider eject",
     "start": "NODE_ENV=production PORT=2008 serve -s build"
   },
@@ -44,12 +44,14 @@
     "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-transform-react-jsx": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
+    "babel-jest": "^27.4.5",
     "dotenv-webpack": "^7.0.3",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
-    "jest": "^27.4.5"
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.2"
   }
 }
