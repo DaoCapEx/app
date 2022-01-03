@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Cookie from './cookie';
+import Cookie from './cookie.js';
 
 export default class API {
     static #getBackendHost() {

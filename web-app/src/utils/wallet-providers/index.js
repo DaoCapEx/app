@@ -1,4 +1,4 @@
-import MetaMask from './metamask';
+import MetaMask from './metamask.js';
 
 export default {
     MetaMask,

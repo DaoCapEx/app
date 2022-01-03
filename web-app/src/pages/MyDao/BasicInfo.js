@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 
-import Breadcrumbs from '../../components/Breadcrumb/Breadcrumb';
+import Breadcrumbs from '../../components/Breadcrumb/Breadcrumb.js';
 
 const BasicInfo = () => {
     return (

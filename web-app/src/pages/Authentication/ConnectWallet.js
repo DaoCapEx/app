@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logoLargeSvg from '../../assets/images/logos/logo-svg-transparent/11.svg';
-import Wallets from '../../utils/wallet-providers/index';
-import Cookie from '../../utils/cookie';
-import { WalletProviderNotFoundError } from '../../utils/errors';
+import Wallets from '../../utils/wallet-providers/index.js';
+import Cookie from '../../utils/cookie.js';
+import { WalletProviderNotFoundError } from '../../utils/errors.js';
 
 const ConnectWallet = () => {
     const navigate = useNavigate();
