@@ -10,7 +10,7 @@ import { WalletProviderNotFoundError } from '../../utils/errors.js';
 const ConnectWallet = () => {
     const navigate = useNavigate();
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [isWalletInstalled, setIsWalletInstalled] = useState({});
 
     useEffect(async () => {
@@ -34,7 +34,7 @@ const ConnectWallet = () => {
             );
         }
 
-        setIsLoading(true);
+        setIsLoading(false);
 
         if (isWalletInstalled[walletType]) {
             const account = await Wallets[walletType].getAccount();
