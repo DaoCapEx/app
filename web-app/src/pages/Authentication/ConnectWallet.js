@@ -10,6 +10,7 @@ import { WalletProviderNotFoundError } from '../../utils/errors.js';
 const ConnectWallet = () => {
     const navigate = useNavigate();
     const [error, setError] = useState(null);
+    // eslint-disable-next-line no-unused-vars
     const [isLoading, setIsLoading] = useState(true);
     const [isWalletInstalled, setIsWalletInstalled] = useState({});
 
@@ -89,7 +90,6 @@ const ConnectWallet = () => {
 
                                         <div className="mb-3">
                                             <button
-                                                disabled={isLoading}
                                                 className="btn btn-primary w-100 waves-effect waves-light"
                                                 onClick={e => {
                                                     e.preventDefault();
