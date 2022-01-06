@@ -2,34 +2,33 @@ import React, { useEffect, useState } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Layout from './components/Layout';
+import Layout from './components/Layout/index.js';
 
 // MyDao pages
-import RegisterDAO from './pages/MyDao/RegisterDao';
-import BasicInfo from './pages/MyDao/BasicInfo';
-import Proposals from './pages/MyDao/Proposals';
-import AddressBook from './pages/MyDao/AddressBook';
+import RegisterDAO from './pages/MyDao/RegisterDao.js';
+import BasicInfo from './pages/MyDao/BasicInfo.js';
+import Proposals from './pages/MyDao/Proposals.js';
+import AddressBook from './pages/MyDao/AddressBook.js';
 
 // non-auth pages.
-import ConnectWallet from './pages/Authentication/ConnectWallet';
+import ConnectWallet from './pages/Authentication/ConnectWallet.js';
 
 // utils
-import WalletProviders from './utils/wallet-providers/index';
+import WalletProviders from './utils/wallet-providers/index.js';
 
 //compomnents
-import AlertModal from './components/Modals/AlertModal';
+import AlertModal from './components/Modals/AlertModal.js';
 
 // Import scss
 import './assets/scss/theme.scss';
 import './assets/scss/preloader.scss';
-import walletProviders from './utils/wallet-providers/index';
 
 const App = () => {
     useEffect(() => {}, []);
 
     const [showAccountChangeModal, setShowAccountChangeModal] = useState(false);
 
-    for(const key in WalletProviders){
+    for (const key in WalletProviders) {
         WalletProviders[key].onAccountChanged(() => {
             setShowAccountChangeModal(true);
         });

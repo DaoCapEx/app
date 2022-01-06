@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logoLargeSvg from '../../assets/images/logos/logo-svg-transparent/11.svg';
-import Wallets from '../../utils/wallet-providers/index';
-import API from '../../utils/api';
-import Cookie from '../../utils/cookie';
-import { WalletProviderNotFoundError } from '../../utils/errors';
+import Wallets from '../../utils/wallet-providers/index.js';
+import Cookie from '../../utils/cookie.js';
+import { WalletProviderNotFoundError } from '../../utils/errors.js';
 
 const ConnectWallet = () => {
     const navigate = useNavigate();
@@ -15,21 +14,18 @@ const ConnectWallet = () => {
     const [isWalletInstalled, setIsWalletInstalled] = useState({});
 
     useEffect(async () => {
-
         const _isWalletInstalled = {};
-        for(const key in Wallets){
+        for (const key in Wallets) {
             _isWalletInstalled[key] = await Wallets[key].isWalletInstalled();
         }
 
-        setIsWalletInstalled(_isWalletInstalled);q
+        setIsWalletInstalled(_isWalletInstalled);
 
         if (Cookie.isUserTokenSet()) {
             // redirect to dashboard
             navigate('/mydao/register-dao');
         }
     }, []);
-
-
 
     const connectWalletBtnClick = async walletType => {
         if (!Wallets[walletType]) {
@@ -44,11 +40,7 @@ const ConnectWallet = () => {
             const account = await Wallets[walletType].getAccount();
 
             if (!account) {
-                setError(
-                    'Cannot connect to your wallet. ' +
-                        e.message +
-                        ' Please try again'
-                );
+                setError('Cannot connect to your wallet. Please try again');
             }
 
             // now, register this user.
@@ -106,10 +98,12 @@ const ConnectWallet = () => {
                                                     );
                                                 }}
                                             >
-                                                {isWalletInstalled["MetaMask"] &&
-                                                    'Connect MetaMask Wallet'}
-                                                {!isWalletInstalled["MetaMask"] &&
-                                                    'Install MetaMask Wallet'}
+                                                {isWalletInstalled[
+                                                    'MetaMask'
+                                                ] && 'Connect MetaMask Wallet'}
+                                                {!isWalletInstalled[
+                                                    'MetaMask'
+                                                ] && 'Install MetaMask Wallet'}
                                             </button>
                                         </div>
                                     </form>

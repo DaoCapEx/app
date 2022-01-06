@@ -1,0 +1,28 @@
+name: WEB CI
+
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yaml" up -d --build
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17.x'
+
+      - name: Install dependencies
+        run: cd web-app && npm ci
+
+      - name: Run test
+        run: cd web-app && npm run test

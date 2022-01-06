@@ -2,7 +2,7 @@
  *
  *  This is an interface which all other wallet providers should implement.
  */
-import { NotImplementedError } from '../errors';
+import { NotImplementedError } from '../errors.js';
 
 export default class WalletProviderInterface {
     static async onboardWallet() {

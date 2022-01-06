@@ -1,7 +1,7 @@
 import MetaMaskOnboarding from '@metamask/onboarding';
 
-import WalletProviderInterface from './wallet-provider';
-import { WalletNotInstalledError } from '../errors';
+import WalletProviderInterface from './wallet-provider.js';
+import { WalletNotInstalledError } from '../errors.js';
 
 export default class MetaMask extends WalletProviderInterface {
     static async installWallet() {

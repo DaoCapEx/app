@@ -9,8 +9,8 @@ import FeatherIcon from 'feather-icons-react';
 import { Dropdown, DropdownToggle, DropdownMenu, Row, Col } from 'reactstrap';
 
 // Import menuDropdown
-import NotificationDropdown from '../TopbarDropdown/NotificationDropdown';
-import ProfileMenu from '../TopbarDropdown/ProfileMenu';
+import NotificationDropdown from '../TopbarDropdown/NotificationDropdown.js';
+import ProfileMenu from '../TopbarDropdown/ProfileMenu.js';
 
 // import images
 import logoSvg from '../../assets/images/logos/logo-svg/6.svg';

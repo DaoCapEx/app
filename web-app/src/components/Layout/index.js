@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
+import Header from './Header.js';
+import Footer from './Footer.js';
+import Sidebar from './Sidebar.js';
 
 const Layout = props => {
     return (
