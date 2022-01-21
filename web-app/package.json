@@ -16,7 +16,7 @@
     "react-scripts": "^5.0.0",
     "reactstrap": "^9.0.1",
     "regenerator-runtime": "^0.13.9",
-    "sass": "^1.45.0",
+    "sass": "^1.45.2",
     "simplebar-react": "^2.3.6",
     "universal-cookie": "^4.0.4",
     "web3": "^1.6.1"
