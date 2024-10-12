@@ -18,8 +18,8 @@
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.45.0",
     "simplebar-react": "^2.3.6",
-    "universal-cookie": "^4.0.4",
-    "web3": "^1.6.1"
+    "universal-cookie": "^7.2.1",
+    "web3": "^4.2.0"
   },
   "scripts": {
     "dev": "ESLINT_NO_DEV_ERRORS=true NODE_ENV=development SKIP_PREFLIGHT_CHECK=true PORT=2008 react-scripts --openssl-legacy-provider start",
